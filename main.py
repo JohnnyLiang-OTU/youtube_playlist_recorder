@@ -105,37 +105,35 @@ def record_playlist(url):
     
     return
 
-def workspace():
-    url = "url.example"
+
+from urllib.parse import urlparse, parse_qs
+
+def is_youtube_playlist_url(url):
     try:
-        title_of_playlist = get_playlist_title(url)
-    except:
-        print("Not a valid youtube URL. Exiting...")
-        sys.exit(1)
-    
-    title_of_playlist = title_of_playlist.replace(' ', '') # Remove spaces
-    video_titles = get_playlist_entries(url)
-    
-    
-    # Make dict for every index, title
-    '''
-    Example:
-        {
-            'index': 2,
-            'title': 'Li Bai',
-            'id': 'xbwqkqv5ljo'
-        }
-    '''
-    video_titles = [VideoEntry(index, title_idd['title'], title_idd['idd']).dict_form() for index, title_idd in enumerate(video_titles, 1)]
-    
-    json_body = {
-        'playlist_title': title_of_playlist,
-        'videos': video_titles[:5]
-    }
-    
-    print(json_body)
-    
-    return
+        # Parse the URL
+        parsed_url = urlparse(url)
+        
+        # Ensure the domain is YouTube
+        if parsed_url.netloc not in ["www.youtube.com", "youtube.com", "youtu.be"]:
+            return False
+        
+        # Extract query parameters
+        query_params = parse_qs(parsed_url.query)
+        
+        # Check if 'list' parameter exists
+        return 'list' in query_params
+    except Exception as e:
+        print(f"Error parsing URL: {e}")
+        return False
+
+
+def workspace():
+    url = "https://www.youtube.com/playlist?list=PLZiES87M_Qu1DwFZ6Iz7hJ6jHznoxOZ9K"
+
+    if is_youtube_playlist_url(url):
+        print("This is a  Youtube playlist URL.")
+    else:
+        print("This is not a playlist URL.")
 
 
 
@@ -200,18 +198,17 @@ def main():
     options = [
         "1. Record a Playlist into json.",
         "2. Compare Playlists."
-        
     ]
     
     print("------------------------------------------------------------")
     print("JohnL welcomes you.")
     
-    url = input("\nEnter the URL: ")
+    url = input("\nEnter the Youtube Playlist URL: ")
     
-    try:
-        playlist_title = get_playlist_title(url)
-    except:
-        print("Not a valid youtube URL. Exiting...")
+    if is_youtube_playlist_url(url):
+        print("Valid URL...")
+    else:
+        print("This is not a Youtube Playlist URL")
         sys.exit(1)
     
     for option in options:
