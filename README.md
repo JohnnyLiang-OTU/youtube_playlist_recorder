@@ -22,3 +22,13 @@ The code helps me solve this issue by recording the IDs and Titles of the videos
 If the case arises that a video is privated or deleted:<br>
 &emsp;The code helps me compare the recorded IDs and Titles of the playlists to the current one, and point out which one has been deleted or privated.
 ![alt text](found_video.png "found match")<br>
+
+# Installation
+Clone the Github repo
+
+# Usage
+1. Run the main.py file.<br>
+2. An input will be prompted for the URL of the playlist (Make sure the playlist is unlisted or public).<br>
+3. If the URL is a valid Youtube Playlist:
+- The user may record the playlist into Json format.
+- The user may compare a previously recorded Json object with the current playlist. In other words, compare a previous state of the playlist to the current one.
