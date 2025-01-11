@@ -19,8 +19,8 @@ Furthermore, Covers are also prone of being deleted or privated which causes the
 The code helps me solve this issue by recording the IDs and Titles of the videos and store them in json format.<br>
 ![alt text](record_playlist_example.png "recorded code")<br>
 ![alt text](recorded_json_example.png "json obj")<br>
-If the case arises that a video is privated or deleted:<br>
-&emsp;The code helps me compare the recorded IDs and Titles of the playlists to the current one, and point out which one has been deleted or privated.
+If the case arises that a video is privated or deleted:
+- The code helps me compare the recorded IDs and Titles of the playlists to the current one, and point out which one has been deleted or privated.<br>
 ![alt text](found_video.png "found match")<br>
 
 # Installation
