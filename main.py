@@ -200,8 +200,16 @@ def main():
         "2. Compare Playlists."
     ]
     
-    print("------------------------------------------------------------")
-    print("JohnL welcomes you.")
+    print("""
+        ------------------------------------------------------------
+          Welcome to the YT Private/Deleted video name tracker.
+          
+          !! We are not associated with Youtube nor Google. !!
+          
+          Enter the desired input when prompted.
+          
+        ------------------------------------------------------------
+          """)
     
     url = input("\nEnter the Youtube Playlist URL: ")
     
