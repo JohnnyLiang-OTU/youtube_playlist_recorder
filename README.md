@@ -42,3 +42,5 @@ Clone the Github repo
 
 - The user may record the playlist into Json format.
 - The user may compare a previously recorded Json object with the current playlist. In other words, compare a previous state of the playlist to the current one.
+
+# Planning to update and scale into a functional app.  
